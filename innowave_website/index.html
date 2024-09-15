@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INNOWAVE - Aquaculture Research Solutions</title>
     <style>
+        /* Existing CSS */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 100px 20px 20px 20px; /* Adjusted top padding */
         }
         h1 {
-            color: #0066cc;
+            color: #0099ff;
             text-align: center;
+            margin-top: 10px;
+            font-size: 15px;
         }
         h2 {
             color: #0099ff;
@@ -26,26 +29,68 @@
             margin-bottom: 20px;
             border-radius: 5px;
         }
+        /* Modified CSS for the logo */
         .logo {
-            display: block;
-            margin-left: 0;
-            margin-right: auto;
             max-width: 150px;
             height: auto;
-}
+        }
+        /* New CSS for Fixed Header */
+        .fixed-header {
+            background-color: blue;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;              /* Added flex display */
+            align-items: center;        /* Center vertically */
+            padding: 5px 20px;         /* Adjusted padding */
+            z-index: 1000;
+        }
+        /* Remove text-align center since we're using flex */
+        /* Adjusted logo within fixed header */
+        .fixed-header .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        /* Optional: Adjust the tagline below the header */
+        .tagline {
+            color: #0099ff;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 30px;
+        }
+
+        .tagline_sub {
+            color: #0099ff;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <img src="images/logo.svg" alt="INNOWAVE Logo" class="logo">
+    <!-- Fixed Header with Logo -->
+    <div class="fixed-header">
+        <img src="images/logo_white.svg" alt="INNOWAVE Logo" class="logo">
+    </div>
 
-        <h1>INNOWAVE</h1>
-        <p style="text-align: center;">Innovative Solutions for Aquaculture Research</p>
-    </header>
+    <!-- Tagline moved below the header -->
+    <h1>INNOWAVE</h1> 
+    <p class="tagline">Solutions to the Digital Aquaculture Research</p>
+    <p class="tagline_sub">생산성 향상과 인사이트를 얻기 위한 가장 좋은 방법.</p>
 
+    <!-- Main Content -->
     <main>
         <div class="business-field">
-            <h2>1. Real-time Water Quality Monitoring System</h2>
+            <h2>Our Mission : "Digital Transformation & 2050 Carbon Neutrality"</h2>
+            <p>INNOWAVE is dedicated to providing digital-based research infrastructure construction and solutions using IT technologies such as IoT and AI. Our goal is to help researchers achieve their research objectives, improve their expertise, and contribute to the Carbon Neutrality 2050 initiative.</p>
+        </div>
+
+        <div class="business-field">
+            <h2>Real-time Water Quality Monitoring System</h2>
             <p><strong>Main Customers:</strong> Researchers at 15 national aquaculture research centres in Korea</p>
             <p><strong>Products:</strong></p>
             <ul>
@@ -57,19 +102,7 @@
         </div>
 
         <div class="business-field">
-            <h2>1. Real-time Water Quality Monitoring System</h2>
-            <p><strong>Main Customers:</strong> Researchers at 15 national aquaculture research centres in Korea</p>
-            <p><strong>Products:</strong></p>
-            <ul>
-                <li>Water quality sensors for each parameter</li>
-                <li>Local water quality sensor network hub</li>
-                <li>Server dedicated machine</li>
-                <li>Real-time monitoring web service for each water quality parameter in each tank</li>
-            </ul>
-        </div>
-
-        <div class="business-field">
-            <h2>2. Growth and Survival Prediction System</h2>
+            <h2>Growth Survival Prediction System</h2>
             <p><strong>Major Customers:</strong> Researchers at 15 national aquaculture research centres in Korea</p>
             <p><strong>Products:</strong></p>
             <ul>
@@ -82,7 +115,7 @@
         </div>
 
         <div class="business-field">
-            <h2>3. Digital Research Tank Facility</h2>
+            <h2>디지털 양식 연구 수조시스템 (Tank Systems For Digital Aquaculture Research)</h2>
             <p><strong>Major Customers:</strong> Researchers from 15 national aquaculture research centres in Korea</p>
             <p><strong>Products:</strong></p>
             <ul>
@@ -92,7 +125,7 @@
         </div>
 
         <div class="business-field">
-            <h2>4. Carbon Neutral 2050</h2>
+            <h2>탄소중립 2050 (2050 Carbon Neutrality)</h2>
             <p><strong>Key Customers:</strong> Researchers at 15 national aquaculture research centres in South Korea</p>
             <p><strong>Products:</strong></p>
             <ul>
@@ -102,8 +135,10 @@
         </div>
 
         <div class="business-field">
-            <h2>Our Mission</h2>
-            <p>INNOWAVE is dedicated to providing digital-based research infrastructure construction and solutions using IT technologies such as IoT and AI. Our goal is to help researchers achieve their research objectives, improve their expertise, and contribute to the Carbon Neutrality 2050 initiative.</p>
+            <h2>고객문의</h2>
+            <p>제품 상담 & 견적 문의</p>
+            <p>Email: ino200424@gmail.com</p>
+            <p>Tel: 070 - 8778 - 2378 (10:00AM ~ 17:00PM)</p>
         </div>
     </main>
 
