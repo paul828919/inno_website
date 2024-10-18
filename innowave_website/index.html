@@ -1,149 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INNOWAVE - Aquaculture Research Solutions</title>
+    <title>INNOWAVE - 디지털 수산양식 연구 솔루션</title>
     <style>
-        /* Existing CSS */
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body Styling */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 100px 20px 20px 20px; /* Adjusted top padding */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+            Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
         }
-        h1 {
-            color: #0099ff;
+        /* Header Styling */
+        .header {
+            position: fixed;
+            top: 40px; /* Adjusted for the update banner */
+            width: 100%;
+            background-color: #000000; /* Changed to black */
+            display: flex;
+            align-items: center;
+            padding: 10px 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .header .logo {
+            max-width: 120px;
+        }
+        .nav-menu {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #ffffff; /* Changed to white */
+            font-weight: 500;
+            font-size: 14px;
+        }
+        /* Main Banner */
+        .main-banner {
+            margin-top: 80px;
+            background-image: url('images/main_banner_pillarsofcreation.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 10px;
-            font-size: 15px;
         }
-        h2 {
-            color: #0099ff;
-        }
-        .business-field {
-            background-color: #f0f8ff;
-            padding: 15px;
+        .main-banner h1 {
+            font-size: 48px;
+            font-weight: bold;
             margin-bottom: 20px;
-            border-radius: 5px;
+            color: #000000; /* Changed to black */
         }
-        /* Modified CSS for the logo */
-        .logo {
-            max-width: 150px;
-            height: auto;
+        .main-banner p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #000000; /* Changed to black */
         }
-        /* New CSS for Fixed Header */
-        .fixed-header {
-            background-color: blue;
+        .main-banner .cta-button {
+            padding: 15px 30px;
+            background-color: #0071e3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        /* Section Styling */
+        .section {
+            padding: 80px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .section:nth-child(even) {
+            background-color: #ffffff;
+        }
+        .section:nth-child(odd) {
+            background-color: #f5f5f7;
+        }
+        .section-content {
+            max-width: 50%;
+        }
+        .section-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .section-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .section-image {
+            max-width: 45%;
+        }
+        .section-image img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        /* Footer Styling */
+        footer {
+            background-color: #1d1d1f;
+            color: #f5f5f7;
+            padding: 40px 50px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .footer-links div {
+            max-width: 25%;
+        }
+        .footer-links h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+        }
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .section-content, .section-image {
+                max-width: 100%;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-menu {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .main-banner h1 {
+                font-size: 36px;
+            }
+            .main-banner p {
+                font-size: 18px;
+            }
+        }
+        /* Update Banner */
+        .update-banner {
+            background-color: #ffd700; /* Gold background */
+            color: #000000; /* Black text */
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            display: flex;              /* Added flex display */
-            align-items: center;        /* Center vertically */
-            padding: 5px 20px;         /* Adjusted padding */
-            z-index: 1000;
+            z-index: 2000; /* Ensure it's above other elements */
         }
-        /* Remove text-align center since we're using flex */
-        /* Adjusted logo within fixed header */
-        .fixed-header .logo {
-            max-width: 150px;
-            height: auto;
+        /* Adjust header position */
+        .header {
+            top: 40px; /* Adjust based on the height of the update banner */
         }
-        /* Optional: Adjust the tagline below the header */
-        .tagline {
-            color: #0099ff;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            font-size: 30px;
-        }
-
-        .tagline_sub {
-            color: #0099ff;
-            text-align: center;
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            line-height: 1.2;
+        /* Adjust main banner margin */
+        .main-banner {
+            margin-top: 120px; /* Adjust based on the header height plus update banner height */
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header with Logo -->
-    <div class="fixed-header">
-        <img src="images/logo_white.svg" alt="INNOWAVE Logo" class="logo">
+    <!-- Update Banner -->
+    <div class="update-banner">
+        이노웨이브의 웹사이트는 현재 업데이트 중입니다.
     </div>
 
-    <!-- Tagline moved below the header -->
-    <h1>INNOWAVE</h1> 
-    <p class="tagline">Solutions to the Digital Aquaculture Research</p>
-    <p class="tagline_sub">생산성 향상과 인사이트를 얻기 위한 가장 좋은 방법.</p>
+    <!-- Header -->
+    <header class="header">
+        <img src="images/logo_white.svg" alt="INNOWAVE Logo" class="logo">
+        <nav class="nav-menu">
+            <a href="#solutions">솔루션</a>
+            <a href="#products">제품</a>
+            <a href="#contact">문의하기</a>
+        </nav>
+    </header>
 
-    <!-- Main Content -->
-    <main>
-        <div class="business-field">
-            <h2>Our Mission : "Digital Transformation & 2050 Carbon Neutrality"</h2>
-            <p>INNOWAVE is dedicated to providing digital-based research infrastructure construction and solutions using IT technologies such as IoT and AI. Our goal is to help researchers achieve their research objectives, improve their expertise, and contribute to the Carbon Neutrality 2050 initiative.</p>
+    <!-- Main Banner -->
+    <section class="main-banner">
+        <div>
+            <h1>디지털 양식 연구</h1>
+            <p>INNOWAVE와 함께 혁신적인 연구를 시작하세요.</p>
+            <a href="#contact" class="cta-button">지금 문의하기</a>
         </div>
+    </section>
 
-        <div class="business-field">
-            <h2>Real-time Water Quality Monitoring System</h2>
-            <p><strong>Main Customers:</strong> Researchers at 15 national aquaculture research centres in Korea</p>
-            <p><strong>Products:</strong></p>
+    <!-- Section 1 -->
+    <section class="section" id="solutions">
+        <div class="section-content">
+            <h2>Digital Transformation & 2050 Carbon Neutrality</h2>
+            <p>이노웨이브는 수산양식, 해양환경, 해양생태계에 관한 연구를 수행하는 국립 & 지자체 연구소, 정부 출연 연구 기관들에게 IT(IoT, 딥러닝, AI) 기반 연구 인프라를 제공합니다.</p>
+            <p>2050 탄소 중립 달성을 위한 미세조류 & 해조류의 탄소 순환 연구에 참여하며, 탄소 순환 실천을 위해 프리미엄 미세조류를 연구기관에 공급하고 있습니다.</p>
+        </div>
+        <div class="section-image">
+            <img src="images/section1_digital carbon.jpg" alt="Digital Transformation">
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section" id="products">
+        <div class="section-image">
+            <img src="images/section2_realtime monitoring.jpg" alt="Real-time Monitoring">
+        </div>
+        <div class="section-content">
+            <h2>실시간 수질 모니터링 시스템</h2>
             <ul>
-                <li>Water quality sensors for each parameter</li>
-                <li>Local water quality sensor network hub</li>
-                <li>Server dedicated machine</li>
-                <li>Real-time monitoring web service for each water quality parameter in each tank</li>
+                <li>해수 전용 파라미터 : Temp, Sal, DO, pH, ORP, DIC, FM(Flow), EC, TDS</li>
+                <li>해수 전용 센서 : EC, DO, pH, ORP, FM</li>
+                <li>사용자 맞춤형 센서 마운트(수조 빌트인), 로컬 센서 네트워크</li>
+                <li>전용 로컬 서버</li>
+                <li>사용자 맞춤형 실시간 모니터링 웹 서비스</li>
+                <li>데이터 검색, 다운로드, 분석 웹 서비스</li>
+                <li>정기 센서 점검 및 교정</li>
             </ul>
         </div>
+    </section>
 
-        <div class="business-field">
-            <h2>Growth Survival Prediction System</h2>
-            <p><strong>Major Customers:</strong> Researchers at 15 national aquaculture research centres in Korea</p>
-            <p><strong>Products:</strong></p>
+    <!-- Section 3 -->
+    <section class="section">
+        <div class="section-content">
+            <h2>목적 생물 관리 시스템</h2>
             <ul>
-                <li>Database of microscopic images of developmental stages of organisms</li>
-                <li>Database of feeding amount</li>
-                <li>Database of water quality management</li>
-                <li>Deep learning of each database</li>
-                <li>Web service for predicting growth and survival of organisms</li>
+                <li>양식 생물종의 유전자 정보 입력</li>
+                <li>사용자 맞춤형 일일 양관리 정보(영양 공급, 환수 등) 입력</li>
+                <li>사용자 맞춤형 일일 성장관리 정보(현미경 이미지, 성장도, 생리활성도 등) 입력</li>
+                <li>목적 생물의 관리 데이터 베이스 구축</li>
+                <li>배양 과정 중 이상현상의 원인 추적 및 분석 도구 서비스</li>
+                <li>연구 DB(목적 생물, 수질환경, 배양 관리 등)기반 배양결과 분석 및 요약 보고서 서비스</li>
+                <li>연구자원(인적,물적 자원) 배치를 위한 분석 보고 서비스</li>
+                <li>사용자의 특화된 딥러닝 모델을 통한 목적 생물의 성장 예측 서비스</li>
             </ul>
         </div>
+        <div class="section-image">
+            <img src="images/section3_cultivation management.jpg" alt="Growth Prediction">
+        </div>
+    </section>
 
-        <div class="business-field">
-            <h2>디지털 양식 연구 수조시스템 (Tank Systems For Digital Aquaculture Research)</h2>
-            <p><strong>Major Customers:</strong> Researchers from 15 national aquaculture research centres in Korea</p>
-            <p><strong>Products:</strong></p>
+    <!-- Section 4 -->
+    <section class="section">
+        <div class="section-image">
+            <img src="images/section4_3d modeling.jpg" alt="Tank Systems">
+        </div>
+        <div class="section-content">
+            <h2>양식연구용 디지털 수조시스템</h2>
             <ul>
-                <li>Research sensor-embedded breeding tank</li>
-                <li>Real-time controlled filtration sterilisation device</li>
+                <li>실시간 수질환경 모니터링을 위한 센서 내장 수조</li>
+                <li>수조 시스템의 실시간 관제(환수, 수온, 여과 및 살균 공정) 서비스</li>
+                <li>연구 목적 실현과 사용자 연구 환경의 맞춤형 수조설비 설계, 제작, 시공, 사후관리 서비스</li>
+                <li>수조설비 도입 후 사용자 경험에 따른 전용 소프트웨어 순차적 도입 서비스</li>
+                <li>제작 사례 : 관계사인 대성하이테크의 홈페이지 참고(<a href="https://www.dstec.kr/main/" target="_blank">https://www.dstec.kr/main/</a>)</li>
             </ul>
         </div>
+    </section>
 
-        <div class="business-field">
-            <h2>탄소중립 2050 (2050 Carbon Neutrality)</h2>
-            <p><strong>Key Customers:</strong> Researchers at 15 national aquaculture research centres in South Korea</p>
-            <p><strong>Products:</strong></p>
+    <!-- Section 5 -->
+    <section class="section">
+        <div class="section-content">
+            <h2>탄소중립 2050 실현을 위한 해조류 연구</h2>
             <ul>
-                <li>Customised SPF_Microalgae</li>
-                <li>Carbon cycle monitoring system for algae aquaculture research</li>
+                <li>사용자 맞춤형 SPF_미세조류 공급</li>
+                <li>해조류 양식의 탄소 흡수, 순환, 격리에 관한 연구, CO₂ 평가 모델링 서비스 개발 중 </li>
             </ul>
         </div>
-
-        <div class="business-field">
-            <h2>고객문의</h2>
-            <p>제품 상담 & 견적 문의</p>
-            <p>Email: ino200424@gmail.com</p>
-            <p>Tel: 070 - 8778 - 2378 (10:00AM ~ 17:00PM)</p>
+        <div class="section-image">
+            <img src="images/section5_microalgecoding.jpg" alt="Carbon Neutrality">
         </div>
-    </main>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-image">
+            <img src="images/contact_fieryhourglass.jpg" alt="Contact Us">
+        </div>
+        <div class="section-content">
+            <h2>문의하기</h2>
+            <p>제품 상담 및 견적 문의는 아래 연락처로 연락주시기 바랍니다.</p>
+            <p><strong>Email:</strong> ino200424@gmail.com</p>
+            <p><strong>Tel:</strong> 070 - 8778 - 2378 (10:00AM ~ 17:00PM)</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p style="text-align: center;">&copy; 2024 INNOWAVE. All rights reserved.</p>
+        <div class="footer-links">
+            <div>
+                <h3>회사 소개</h3>
+                <a href="#">이노웨이브 소개</a>
+                <a href="#">채용 정보</a>
+                <a href="#">윤리 경영</a>
+            </div>
+            <div>
+                <h3>고객 지원</h3>
+                <a href="#">고객 센터</a>
+                <a href="#">제품 지원</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div>
+                <h3>법적 고지</h3>
+                <a href="#">개인정보 처리방침</a>
+                <a href="#">이용 약관</a>
+                <a href="#">면책 조항</a>
+            </div>
+            <div>
+                <h3>소셜 미디어</h3>
+                <a href="#">페이스북</a>
+                <a href="#">트위터</a>
+                <a href="#">링크드인</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020-2024 INNOWAVE. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
